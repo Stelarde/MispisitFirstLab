@@ -1,0 +1,113 @@
+{>"layout" /}
+{<body} 
+  
+
+
+        <form method="post" action="/orderADDNew">
+                <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalCenterTitle">Добавление</h5>
+                </div>
+                <div class="modal-body">
+                                <div class="form-groop">
+                                        <label> Администратор :</label>
+                                        <Br/>
+                                        
+                                                {#addAdmin}          
+                                                <input type="radio" name="idadmin" value={id}>{name}{surname}<Br/>
+                                                {/addAdmin}
+                                    
+   
+                                            
+                                </div>
+                                <hr/>
+                                <div class="form-groop">
+                                        <label>Доставка из: </label>
+                                        <select name="idfrom"> 
+                                                {#addCityFrom}       
+                                                <option  value={city_id}>{city_namef}</option>                                          
+                                                {/addCityFrom}
+                                            </select>
+                                </div>
+                                <hr/>
+                                <div class="form-groop">
+                                        <label>Доставка В: </label>
+                                        <select name="idto"> 
+                                                {#addCityTo}       
+                                                <option value={city_id}>{city_namet}</option>                                          
+                                                {/addCityTo}
+                                            </select>
+                                </div>
+                                <hr/>
+                                <div class="form-groop">
+                                        <label>Водитель   </label>
+                                        <select name="iddriver"> 
+                                                {#addDrivers}       
+                                                <option value={driver_id}>{driver_name}</option>                                          
+                                                {/addDrivers}
+                                            </select>
+                                </div>
+                                <hr/>
+                                <div class="form-groop">
+                                        <label>Тип доставки</label>
+                                        <select name="idtype"> 
+                                                {#addType}       
+                                                <option value={type_id}>{type_name}</option>                                          
+                                                {/addType}
+                                            </select>
+                                </div>
+                                <hr/>                               
+                                <div class="form-group row">
+                                        <label for="inputPassword" class="col-sm-2 col-form-label">Вес</label>
+                                        <div class="col-sm-10">
+                                        <input type="text" class="form-control" name="weight">
+                                </div>
+                                </div>
+                                <hr/>
+                                <div class="form-group row">
+                                        <label for="inputPassword" class="col-sm-2 col-form-label">X</label>
+                                        <div class="col-sm-2">
+                                          <input type="text" class="form-control" name="size_x" >
+                                        </div>
+                                        <label for="inputPassword" class="col-sm-2 col-form-label">Y</label>
+                                        <div class="col-sm-2">
+                                          <input type="text" class="form-control" name="size_y">
+                                        </div>
+                                        <label for="inputPassword" class="col-sm-2 col-form-label">Z</label>
+                                        <div class="col-sm-2">
+                                          <input type="text" class="form-control" name="size_z">
+                                        </div>
+                                      </div>
+                                <hr/>
+                                <div class="form-group row">
+                                        <label for="inputPassword" class="col-sm-2 col-form-label">Стоимость доставки</label>
+                                        <div class="col-sm-10">
+                                          <input type="text" class="form-control" name="costdelivery">
+                                        </div>
+                                      </div>
+                                <hr/>
+                                <label>Ориентировочные сроки:</label>
+                                <div class="form-groop">                                            
+                                        <div class="form-groop">
+                                                <div class="form-group row">
+                                                        <label for="inputPassword" class="col-sm-2 col-form-label">Дата отправления</label>
+                                                        <div class="col-sm-3">
+                                                        <input type="date" name="dateotpr">
+                                                        
+                                                        </div>
+                                                        <label for="inputPassword" class="col-sm-2 col-form-label">Дата прибытия</label>
+                                                        <div class="col-sm-3">
+                                                                <input type="date" name="dateprbt">
+                                                        </div>
+                                                        
+                                                      </div>
+                                                
+                                        </div>                                            
+                                </div>
+                </div>
+                <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" value="/" >Отменить</button>
+                <input type="submit" class="btn btn-primary" value="Создать"/>
+                </div>
+        </form>
+     
+{/body}

@@ -1,0 +1,176 @@
+{>"layout" /}
+{<body}
+                        <a href="/orderAdd">
+                                Добавление Заказа
+                        </a>
+                        <br/>
+                
+        {#order}  
+        <input type="hidden" name="order_id" value={order_id}><Br/>
+                <div class="card">
+                        <div class="card-header bg-primary">
+                            <h4>Заказ  {order_id} </h4>
+                          </div>
+                          <div class="card-body">
+                            <button class="btn btn-default" data-toggle="collapse" href="#kek{order_id}" role="button" aria-expanded="false" aria-controls="kek">View</button>
+                            
+                          </div>
+                          <div class="collapse multi-collapse" id="kek{order_id}">
+                            <div class="card card-body">
+                              <br/> 
+                                <strong>Администратор:</strong>{name}</p>
+                                <p><strong>Доставка:</strong><strong> Откуда:</strong>{city_namef}  <strong>Куда:</strong>{city_namet}</p>
+                                <p><strong>Водитель:</strong>{driver_name}  <strong>Вес:</strong>{weight}  <strong>Тип продукта:</strong>{type_name}</p>
+                                <p><strong>Размеры:</strong><strong> x:</strong>{size_x} <strong>y:</strong>{size_y} <strong>z:</strong>{size_z}</p>
+                                <p><strong>Цена:</strong>{costdelivery} <strong>Дата Отправления:</strong>{dateotpr}  <strong>Дата Прибытия:</strong>{dateprbt}</p>
+                              <hr/> 
+
+                            
+                                <a class="btn btn-primary"  data-toggle="collapse" href="#lol{order_id}" role="button" aria-expanded="false" aria-controls="">Редактировать</a>
+                    <div class="row">
+                                <div class="col">
+                                  <div class="collapse multi-collapse" id="lol{order_id}">
+                                    <div class="card card-body">
+                                      
+                                      <form method="post" action="/orderEdit">
+                                        <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalCenterTitle">Добавление</h5>
+                                        </div>
+                                        <div class="modal-body">
+                                                        <div class="form-groop">
+                                                                   
+                                                           <input type="hidden" name="order_id "value={order_id}>
+                                                         
+                                                                <label> Администратор :</label>
+                                                                <Br/>                                                                
+                                                                        {#addAdmin}          
+                                                                        <input type="radio" name="admin_id" value={id}>{name}{surname}<Br/>
+                                                                        {/addAdmin}                                                          
+                                                           </div>
+                                                        <hr/>
+                                                        <div class="form-groop">
+                                                                <label>Доставка из: </label>
+                                                                <select name="cityfrom"> 
+                                                                        {#addCityFrom}       
+                                                                        <option  value={city_id}>{city_namef}</option>                                          
+                                                                        {/addCityFrom}
+                                                                    </select>
+                                                        </div>
+                                                        <hr/>
+                                                        <div class="form-groop">
+                                                                <label>Доставка В: </label>
+                                                                <select name="cityto"> 
+                                                                        {#addCityTo}       
+                                                                        <option value={city_id}>{city_namet}</option>                                          
+                                                                        {/addCityTo}
+                                                                    </select>
+                                                        </div>
+                                                        <hr/>
+                                                        <div class="form-groop">
+                                                                <label>Водитель   </label>
+                                                                <select name="iddriver"> 
+                                                                        {#addDrivers}       
+                                                                        <option value={driver_id}>{driver_name}</option>                                          
+                                                                        {/addDrivers}
+                                                                    </select>
+                                                        </div>
+                                                        <hr/>
+                                                        <div class="form-groop">
+                                                                <label>Тип доставки</label>
+                                                                <select name="idtype"> 
+                                                                        {#addType}       
+                                                                        <option value={type_id}>{type_name}</option>                                          
+                                                                        {/addType}
+                                                                    </select>
+                                                        </div>
+                                                        <hr/>                               
+                                                        <div class="form-group row">
+                                                                <label for="inputPassword" class="col-sm-2 col-form-label">Вес</label>
+                                                                <div class="col-sm-10">
+                                                                <input type="text" class="form-control" name="weight">
+                                                        </div>
+                                                        </div>
+                                                        <hr/>
+                                                        <div class="form-group row">
+                                                                <label for="inputPassword" class="col-sm-2 col-form-label">X</label>
+                                                                <div class="col-sm-2">
+                                                                  <input type="text" class="form-control" name="size_x" >
+                                                                </div>
+                                                                <label for="inputPassword" class="col-sm-2 col-form-label">Y</label>
+                                                                <div class="col-sm-2">
+                                                                  <input type="text" class="form-control" name="size_y">
+                                                                </div>
+                                                                <label for="inputPassword" class="col-sm-2 col-form-label">Z</label>
+                                                                <div class="col-sm-2">
+                                                                  <input type="text" class="form-control" name="size_z">
+                                                                </div>
+                                                              </div>
+                                                        <hr/>
+                                                        <div class="form-group row">
+                                                                <label for="inputPassword" class="col-sm-2 col-form-label">Стоимость доставки</label>
+                                                                <div class="col-sm-10">
+                                                                  <input type="text" class="form-control" name="costdelivery">
+                                                                </div>
+                                                              </div>
+                                                        <hr/>
+                                                        <label>Ориентировочные сроки:</label>
+                                                        <div class="form-groop">                                            
+                                                                <div class="form-groop">
+                                                                        <div class="form-group row">
+                                                                                <label for="inputPassword" class="col-sm-2 col-form-label">Дата отправления</label>
+                                                                                <div class="col-sm-3">
+                                                                                <input type="date" name="dateotpr">
+                                                                                
+                                                                                </div>
+                                                                                <label for="inputPassword" class="col-sm-2 col-form-label">Дата прибытия</label>
+                                                                                <div class="col-sm-3">
+                                                                                        <input type="date" name="dateprbt">
+                                                                                </div>
+                                                                                
+                                                                              </div>
+                                                                        
+                                                                </div>                                            
+                                                        </div>
+                                        </div>
+                                        <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" value="/" >Отменить</button>
+                                        <input type="submit" class="btn btn-primary" value="Создать"/>
+                                        </div>
+                                </form>
+                                    </div>
+                                  </div>
+                                </div>
+                    </div>
+                      
+                              <form method="post" action="/deleteOrder">    
+                                <input type="hidden" name="order_id" value={order_id}><Br/>           
+                                <input type="submit" class="btn btn-primary" value="Удалить"/>                                               
+                              </form>
+
+
+
+
+
+
+
+
+
+
+
+
+                            </div>
+                          </div>
+                    </div>       
+
+
+
+
+
+        {/order}
+{/body}
+
+
+
+
+
+

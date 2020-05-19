@@ -1,0 +1,59 @@
+{>"layout" /}
+{<body}
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#FormModalCenter">
+    Добавление города
+</button>  
+<!-- Button trigger modal -->
+                                  
+    <!--Add Form Modal -->
+    <div class="modal fade" id="FormModalCenter" tabindex="-1" role="dialog" aria-labelledby="FormModalCenter" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                            <form method="post" action="/addCity">
+                                    <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalCenterTitle">Добавление</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                    </button>
+                                    </div>
+                                    <div class="modal-body">
+                                                    <div class="form-groop">
+                                                            <label>Название города</label>
+                                                            <input type="text" class="form-control" name="name"/>
+                                                    </div>                                                    
+                                    </div>
+                                    <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Отменить</button>
+                                    <input type="submit" class="btn btn-primary" value="Сохранить"/>
+                                    </div>
+                            </form>
+            </div>
+            </div>
+            </div>
+
+
+        {#city}
+        <div class="card">
+            <div class="card-header bg-primary">
+                <h4>{city_namef}</h4>
+              </div>
+              <div class="card-body">
+                <button class="btn btn-default" data-toggle="collapse" href="#city_{city_id}" role="button" aria-expanded="false" aria-controls="#city_{city_id} ">View</button>
+                
+              </div>
+              <div class="collapse" id="city_{city_id}">
+                <div class="card card-body">
+                  <br/>
+                  <p><strong>ID:</strong>{city_id}</p>
+                  <hr/>                      
+                  <button class="btn btn-default edit-city" >Edit</button>
+
+                  <form method="post" action="/deletecity">    
+                        <input type="hidden" name="city_id" value={city_id}><Br/>           
+                        <input type="submit" class="btn btn-primary" value="Удалить"/>                                               
+                  </form>
+                </div>
+              </div>
+        </div>          
+        {/city}
+{/body}

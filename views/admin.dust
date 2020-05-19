@@ -1,0 +1,73 @@
+{>"layout" /}
+{<body}
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#FormModalCenter">
+    Добавление нового администратора
+</button>  
+<!-- Button trigger modal -->
+                                  
+    <!--Add Form Modal -->
+    <div class="modal fade" id="FormModalCenter" tabindex="-1" role="dialog" aria-labelledby="FormModalCenter" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                            <form method="post" action="/addAdmin">
+                                    <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalCenterTitle">Добавление</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                    </button>
+                                    </div>
+                                    <div class="modal-body">
+                                                    <div class="form-groop">
+                                                            <label>Имя</label>
+                                                            <input type="text" class="form-control" name="name"/>                                                            
+                                                    </div>     
+                                                    <div class="form-groop">
+                                                        <label>Фамилия</label>
+                                                        <input type="text" class="form-control" name="surname"/>
+                                                    </div>     
+                                                    <div class="form-groop">
+                                                        <label>Логин</label>
+                                                        <input type="text" class="form-control" name="login"/>
+                                                    </div>    
+                                                    <div class="form-groop">
+                                                        <label>Пароль</label>
+                                                        <input type="text" class="form-control" name="password"/>
+                                                    </div>          
+                                                   
+                                                   
+                                                      
+                                                   
+                                                    
+                                    </div>
+                                    <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Отменить</button>
+                                    <input type="submit" class="btn btn-primary" value="Сохранить"/>
+                                    </div>
+                            </form>
+            </div>
+            </div>
+            </div>
+
+
+        {#admin}
+        <div class="card">
+            <div class="card-header bg-primary">
+                <h4>{login}</h4>
+              </div>
+                  <div class="card card-body">
+                  <br/>
+                  <p><strong>Пароль:</strong>{password}</p>
+                  <p><strong>Имя:</strong>{name}</p>
+                  <p><strong>Фамилия:</strong>{surname}</p>
+                  <p><strong>ID:</strong>{id}</p>
+                  <hr/>                      
+                  <button class="btn btn-default edit-type" >Edit</button>
+                  
+                  <form method="post" action="/deleteAdmin">    
+                    <input type="hidden" name="id" value={id}><Br/>           
+                    <input type="submit" class="btn btn-primary" value="Удалить"/>                                               
+              </form>
+             </div>
+        </div>      
+        {/admin}
+{/body}

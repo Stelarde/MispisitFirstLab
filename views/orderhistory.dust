@@ -1,0 +1,31 @@
+{>"layout" /}
+{<body}
+                                      
+        {#orderhistory}  
+                <div class="card">
+                        <div class="card-header bg-primary">
+                            <h4>Заказ {order_id}  </h4>
+                          </div>
+                          <div class="card-body">
+                            <button class="btn btn-default" data-toggle="collapse" href="#order_id" role="button" aria-expanded="false" aria-controls="#city_{city_id} ">View</button>
+                            
+                          </div>
+                          <div class="collapse" id="order_id">
+                            <div class="card card-body">
+                              <br/>
+                                <strong>Администратор:</strong>{name}</p>
+                                <p><strong>Доставка:</strong><strong> Откуда:</strong>{city_namef}  <strong>Куда:</strong>{city_namet}</p>
+                                <p><strong>Водитель:</strong>{driver_name}  <strong>Вес:</strong>{weight}  <strong>Тип продукта:</strong>{type_name}</p>
+                                <p><strong>Размеры:</strong><strong> x:</strong>{size_x} <strong>y:</strong>{size_y} <strong>z:</strong>{size_z}</p>
+                                <p><strong>Цена:</strong>{costdelivery} <strong>Дата Отправления:</strong>{dateotpr}  <strong>Дата Прибытия:</strong>{dateprbt}</p>
+                              <hr/>                                          
+                        </div>
+                          </div>
+                    </div>       
+
+
+
+
+
+        {/orderhistory}
+{/body}
